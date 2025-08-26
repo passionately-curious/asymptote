@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://asymptote-4k2.pages.dev/sitemap.xml
+

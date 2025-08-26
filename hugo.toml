@@ -2,6 +2,7 @@ baseURL = 'https://asymptote-4k2.pages.dev/'
 languageCode = 'en-us'
 title = 'Asymptote'
 theme = 'PaperMod'
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.extensions]
@@ -10,6 +11,12 @@ theme = 'PaperMod'
         [markup.goldmark.extensions.passthrough.delimiters]
           block = [['\[', '\]'], ['$$', '$$']]
           inline = [['\(', '\)']]
+
 [params]
   math = true
   ShowPostsOnHomePage = true
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
