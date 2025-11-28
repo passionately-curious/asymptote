@@ -4,7 +4,7 @@ Repo for our [blog site](https://asymptote-4k2.pages.dev/).
 
 ## Contributing
 
-### Setup and Development
+### Setup
 
 1. Clone the repo.  
 
@@ -12,19 +12,39 @@ Repo for our [blog site](https://asymptote-4k2.pages.dev/).
     git clone https://github.com/passionately-curious/asymptote.git
     ```  
 
-2. Install hugo using your package manager.
-(Mine is pacman)  
+2. Install hugo using this [guide](https://gohugo.io/installation/).
 
-3. Refer the hugo documentation to create new posts.  
-Switching to a new branch is recommended,
-since cloudflare pages has preview option.
+3. Initialize and update the submodules
 
-4. Run `hugo server -D` to preview the site before commiting.  
+    ```bash
+    git submodule update --init --recursive
+    ```
 
-5. Commit the changes.  
+4. Run hugo server to check if the setup worked
 
-6. Push the changes.  
+    ```bash
+    hugo server
+    ```
+
+### Development
+
+To write a new blog post,
+
+1. Start by switching to new branch.
+
+2. Create a new blog post.
+
+    ```bash
+    hugo new content content/posts/blog-name.md
+    ```
+
+3. Run `hugo server -D` to preview the site before commiting.
+
+4. Stage and commit the changes.
+
+5. Push your changes to the branch created for that specific post.
 
 ## Some useful links
 
 - [Hugo docs](https://gohugo.io/documentation/)
+- [PaperMod docs](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#regular-mode-default-mode)
