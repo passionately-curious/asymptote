@@ -1,0 +1,47 @@
+<!-- layouts/partials/extend_footer.html -->
+<button
+  id="pm-width-toggle"
+  type="button"
+  aria-pressed="false"
+  title="Toggle content width"
+>
+  Wide
+</button>
+<script>
+  (function () {
+    const root = document.documentElement;
+    const key = "pm-content-wide";
+    const btn = document.getElementById("pm-width-toggle");
+
+    function apply(pref) {
+      if (pref) {
+        root.classList.add("pm-wide");
+        btn.setAttribute("aria-pressed", "true");
+        btn.textContent = "Narrow";
+      } else {
+        root.classList.remove("pm-wide");
+        btn.setAttribute("aria-pressed", "false");
+        btn.textContent = "Wide";
+      }
+    }
+
+    // read saved preference and apply on load
+    let pref = localStorage.getItem(key) === "1";
+    apply(pref);
+
+    btn.addEventListener("click", function () {
+      pref = !pref;
+      localStorage.setItem(key, pref ? "1" : "0");
+      apply(pref);
+    });
+
+    // If CSS hasn’t loaded yet, also hide on small screens via JS
+    function syncVisibility() {
+      btn.style.display = window.matchMedia("(min-width: 1024px)").matches
+        ? ""
+        : "none";
+    }
+    syncVisibility();
+    window.addEventListener("resize", syncVisibility);
+  })();
+</script>

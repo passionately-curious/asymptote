@@ -1,0 +1,37 @@
+/* Set the "wide" width you want on big screens */
+:root {
+  --pm-wide-main-width: 1100px; /* tweak this value */
+}
+
+/* When the html gets the pm-wide class, use the wider width */
+html.pm-wide {
+  --main-width: var(--pm-wide-main-width);
+}
+
+/* Style the floating toggle button */
+#pm-width-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.30rem 0.45rem;
+  border: 1px solid var(--tertiary);
+  border-radius: var(--radius);
+  background: var(--entry);
+  color: var(--primary);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+}
+
+/* Only show the toggle on laptop/desktop */
+@media (min-width: 1024px) {
+  #pm-width-toggle {
+    display: inline-flex;
+  }
+}
+@media (max-width: 1023.98px) {
+  #pm-width-toggle {
+    display: none !important;
+  }
+}
